@@ -12,6 +12,8 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.agenda.databinding.FragmentFirstBinding;
 
+import android.util.Log;
+
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
@@ -43,6 +45,41 @@ public class FirstFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+
+        Log.v("CFB", "App Iniciado");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        Log.v("CFB", "App Retormado");
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        Log.v("CFB", "App Pausado");
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+
+        Log.v("CFB", "App Parado");
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+
+        Log.v("CFB", "App Destruido");
     }
 
 }
