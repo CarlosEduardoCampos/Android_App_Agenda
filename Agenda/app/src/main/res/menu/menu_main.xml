@@ -7,4 +7,14 @@
         android:orderInCategory="100"
         android:title="@string/config_txt"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/acao_site"
+        android:orderInCategory="100"
+        android:title="@string/link_txt"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/acao_canal"
+        android:orderInCategory="100"
+        android:title="@string/canal_txt"
+        app:showAsAction="never" />
 </menu>

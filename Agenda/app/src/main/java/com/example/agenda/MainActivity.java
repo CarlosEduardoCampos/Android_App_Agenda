@@ -1,5 +1,6 @@
 package com.example.agenda;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -58,10 +59,31 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.acao_configuracoes) {
+            msg("Menu configuração acionado");
+            return true;
+        }
+        else if(id == R.id.acao_site){
+            msg("Menu site acionado");
+            return true;
+        }
+        else if (id == R.id.acao_canal){
+            msg("Menu canal acionado");
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void msg(String txt){
+        //Cria um novo alerta
+        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+
+        // Registra as informações que seram mostradas
+        alerta.setMessage(txt);
+        alerta.setNeutralButton("OK", null);
+
+        //Mostra o alerta
+        alerta.show();
     }
 
     @Override
