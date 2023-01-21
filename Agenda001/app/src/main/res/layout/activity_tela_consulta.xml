@@ -4,28 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".TelaConsulta">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="@string/txt_consutar"
+            android:textAlignment="center"
+            android:textSize="34sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/tv_nome"
+                android:id="@+id/tv_pes_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
@@ -34,19 +40,18 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_nome"
+                android:id="@+id/et_pes_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:ems="10"
-                android:fontFamily="sans-serif-medium"
                 android:hint="@string/txt_dig_nome"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/tv_telefone"
+                android:id="@+id/tv_pes_telefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
@@ -55,15 +60,15 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_telefone"
+                android:id="@+id/et_pes_telefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
-                android:hint="@string/txt_dig_numero"
-                android:inputType="textPersonName|phone"
+                android:inputType="textPersonName"
                 android:padding="10dp"
+                android:text="@string/txt_dig_numero"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -71,18 +76,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <Button
-                android:id="@+id/btn_gravar"
+                android:id="@+id/btn_anteriro"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginBottom="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/purple_700"
-                android:padding="10dp"
-                android:text="@string/txt_gravar"
-                android:textColor="@color/white"
+                android:text="@string/txt_anterior"
                 android:textSize="16sp" />
 
             <Space
@@ -91,27 +94,19 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/btn_consultar"
+                android:id="@+id/btn_proximo"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginBottom="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/purple_700"
-                android:padding="10dp"
-                android:text="@string/txt_consutar"
-                android:textColor="@color/white"
+                android:text="@string/txt_proximo"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_fechar"
+            android:id="@+id/btn_voltar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/purple_700"
-            android:text="@string/txt_fechar"
-            android:textColor="@color/white"
+            android:text="@string/txt_voltar"
             android:textSize="16sp" />
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

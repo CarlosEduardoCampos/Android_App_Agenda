@@ -7,4 +7,8 @@
     <string name="txt_gravar">GRAVAR</string>
     <string name="txt_consutar">CONSULTAR</string>
     <string name="txt_fechar">FECHAR</string>
+    <string name="txt_pesquisar">Pesquisar</string>
+    <string name="txt_anterior">ANTERIOR</string>
+    <string name="txt_proximo">PROXIMO</string>
+    <string name="txt_voltar">VOLTAR</string>
 </resources>

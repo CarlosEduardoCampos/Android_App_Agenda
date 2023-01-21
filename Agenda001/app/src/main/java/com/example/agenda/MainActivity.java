@@ -16,9 +16,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Relacionando elementos as variaveis
+
         //EditText -> elemetos de imput de texto
         et_nome = findViewById(R.id.et_nome);
         et_telefone = findViewById(R.id.et_telefone);
+
         //Button -> elementos clicaveis
         btn_gravar = findViewById(R.id.btn_gravar);
         btn_consultar = findViewById(R.id.btn_consultar);
