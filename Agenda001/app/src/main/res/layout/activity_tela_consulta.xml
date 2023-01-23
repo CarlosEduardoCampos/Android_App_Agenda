@@ -31,6 +31,16 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/tv_pes_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="@string/txt_cod"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TextView
                 android:id="@+id/tv_pes_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,6 +58,7 @@
                 android:hint="@string/txt_dig_nome"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:selectAllOnFocus="true"
                 android:textSize="24sp" />
 
             <TextView
@@ -86,6 +97,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_700"
+                android:onClick="anteriorRegistro"
                 android:text="@string/txt_anterior"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -101,6 +113,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_700"
+                android:onClick="proximoRegistro"
                 android:text="@string/txt_proximo"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

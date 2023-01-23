@@ -4,6 +4,7 @@
     <string name="txt_dig_numero">(00) 00000-0000</string>
     <string name="txt_nome">Nome</string>
     <string name="txt_tel">Telefone</string>
+    <string name="txt_cod">Codigo</string>
     <string name="txt_gravar">GRAVAR</string>
     <string name="txt_consutar">CONSULTAR</string>
     <string name="txt_fechar">FECHAR</string>

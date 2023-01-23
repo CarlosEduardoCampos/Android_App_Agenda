@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.database.sqlite.SQLiteDatabase;//Banco de dados
-import android.database.Cursor;//Navegar entre os registros
-import android.widget.*;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
