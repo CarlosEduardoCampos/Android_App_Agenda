@@ -85,7 +85,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/purple_700"
                 android:text="@string/txt_anterior"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Space
@@ -98,7 +100,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/purple_700"
                 android:text="@string/txt_proximo"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -106,7 +110,10 @@
             android:id="@+id/btn_voltar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:backgroundTint="@color/purple_700"
+            android:onClick="finalizarTela"
             android:text="@string/txt_voltar"
+            android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
