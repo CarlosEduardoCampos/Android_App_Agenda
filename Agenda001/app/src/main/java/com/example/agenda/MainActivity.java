@@ -1,6 +1,6 @@
 package com.example.agenda;
 
-import android.app.AlertDialog;
+import static com.example.agenda.CxMsg.*;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn_gravar, btn_consultar, btn_fechar;
 
     SQLiteDatabase db=null;
+
+    CxMsg mensagem = new CxMsg(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         try{
             db = openOrCreateDatabase("bancoAgenda", MODE_PRIVATE, null);
         }catch (Exception ex){
-            msg("Erro ao tentar abrir ou cria o banco de dados" + "\n>>>> DESCRIÇÃO >>>>\n" + ex);
+            mensagem.msgErro("Erro ao tentar abrir ou cria o banco de dados", ex);
         }
         finally {
             Toast.makeText(this,"Banco de dados foi iniciado com sucesso", Toast.LENGTH_SHORT).show();
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             db.execSQL("CREATE TABLE IF NOT EXISTS contatos(id INTERGER PRIMARY KEY AUTOINCREMENT, nome TEXT, fone TEXT);");
         }
         catch (Exception ex){
-            msg("Erro ao tentar cria a tabela de contatos" + "\n>>>> DESCRIÇÃO >>>>\n" + ex);
+            mensagem.msgErro("Erro ao tentar cria a tabela de contatos", ex);
         }
         finally {
             Toast.makeText(this, "Tabela criada com sucesso !!!", Toast.LENGTH_SHORT).show();
@@ -80,11 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Verifica se todos os campos estão preenchidos
         if(st_nome.equals("") || st_telefone.equals("")){
-            // Mosta uma mesagem de Erro ao usuario
-            AlertDialog.Builder campo_alerta= new AlertDialog.Builder(this);
-            campo_alerta.setTitle("!!! Erro Humano !!!");
-            campo_alerta.setMessage("Campos não podem estar vazios");
-            campo_alerta.show();
+            mensagem.msgErroH("Não e possivel realizar cadastro com capos vazios");
             return;
         }
 
@@ -95,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             fecharDB();
         }
         catch (Exception ex){
-            msg("Erro ao tentar cadastrar um novo contato" + "\n>>>> DESCRIÇÃO >>>>\n" + ex);
+            mensagem.msgErro("Erro ao tentar cadastrar um novo contato" , ex);
         }
         finally {
             // Limpa os campos de digitação
@@ -105,16 +103,6 @@ public class MainActivity extends AppCompatActivity {
             // Mesagem de sucesso
             Toast.makeText(this,"Contato gravado com sucesso",Toast.LENGTH_SHORT).show();
         }
-    }
-
-    // Mesagem padrão para erros(try/catch)
-    public void msg(String txt){
-        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
-
-        alerta.setTitle("!!! Error de Execução !!!");
-        alerta.setMessage(txt);
-        alerta.setNeutralButton("OK", null);
-        alerta.show();
     }
 
     // Cria uma nova tela acima da atual
