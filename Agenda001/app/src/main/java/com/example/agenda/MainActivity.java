@@ -34,7 +34,15 @@ public class MainActivity extends AppCompatActivity {
         btn_fechar = findViewById(R.id.btn_fechar);
 
         // Iniciando o banco de dados
+        //contatos.deletarTabela();
         contatos.criarTabela();
+    }
+
+    // Chama a função que cadastra um novo contato
+    public void inserirRegistro(View v){
+        contatos.setNome(et_nome.getText().toString());
+        contatos.setTelefone(et_telefone.getText().toString());
+        contatos.inserir();
     }
 
     // Cria uma nova tela acima da atual

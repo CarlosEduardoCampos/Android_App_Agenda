@@ -1,18 +1,37 @@
 package com.example.agenda;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.widget.Toast;
 
 public class Contatos {
-    protected String nome;
-    protected String telefone;
-    private Activity act = null;
-    private BancoDados db;
+    // Titulo e nomes das colunas da tabela
+    private final String TITULO_TABELA = "contatos";
+    private final String COLUNA_ID = "id";
+    private final String COLUNA_NOME = "nome";
+    private final String COLUNA_FONE = "fone";
 
+    // Variaveis
+    private Integer id;// Indentificador(unico)
+    protected String nome = "";// nome do contato
+    protected String telefone = "";// telefone do contato
+    private Activity act = null;// tela onde a classe foi chamada
+    private BancoDados db;// Banco de dados da aplicação
+
+    // Metodo costrutor da classe contatos
     public Contatos(Activity activity, BancoDados banco){
         this.act = activity;
         this.db = banco;
+    }
+
+    // GET - SET -> id
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     // GET - SET -> nome
@@ -37,10 +56,10 @@ public class Contatos {
     public void criarTabela(){
         try {
             db.abrirTabela(
-            "contatos(" +
-                "id INTERGER PRIMARY KEY," +
-                "nome TEXT," +
-                "fone TEXT" +
+                TITULO_TABELA + "(" +
+                COLUNA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUNA_NOME + " TEXT," +
+                COLUNA_FONE + " TEXT" +
                 ");"
             );
         }
@@ -52,18 +71,30 @@ public class Contatos {
         }
     }
 
+    // Apaga a tabela de contatos completamente
+    public void deletarTabela(){
+        db.deletarTabela(TITULO_TABELA);
+    }
+
     // Cadastra um nono contato na agenda
-    public void inserir(Contatos pes, BancoDados db){
+    public void inserir(){
 
         // Verifica se todos os campos estão preenchidos
-        if(pes.nome.equals("") || pes.telefone.equals("")){
+        if(nome.equals("") || telefone.equals(""))
+        {
             CxMsg.erroHumano(act,"Não e possivel realizar cadastro com capos vazios");
             return;
         }
 
-        // Reliza um cadastro no banco de dados
+        // Cadastra um contato no banco de dados
         try{
-            db.inserir("contatos(id, nome, fone) VALUES('" + nome + "', '" + telefone + "')");
+            db.inserir(
+                TITULO_TABELA +"("+
+                COLUNA_NOME +", "+
+                COLUNA_FONE +") VALUES('"+
+                nome +"', '"+
+                telefone +"')"
+            );
         }
         catch (Exception ex){
             CxMsg.erroExecucao(act,"Erro ao tentar cadastrar um novo contato" , ex);
@@ -74,8 +105,46 @@ public class Contatos {
         }
     }
 
+    // Apaga a um contado no banco e dados
+    public void deletar(){
+        try{
+            db.deletar(
+                    TITULO_TABELA,
+                    id
+            );
+        }
+        catch (Exception ex){
+            CxMsg.erroExecucao(act,"Erro ao tentar deletar um contato" , ex);
+        }
+        finally {
+            Toast.makeText(act,"Contato deletado com sucesso",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Edita o contato no banco de dados
+    public void editar(){
+        try{
+            ContentValues valores = new ContentValues();
+            valores.put(COLUNA_NOME, nome);
+            valores.put(COLUNA_FONE, telefone);
+
+            db.editar(
+                    id,
+                    TITULO_TABELA,
+                    valores
+            );
+        }
+        catch (Exception ex){
+            CxMsg.erroExecucao(act,"Erro ao tentar deletar um contato" , ex);
+        }
+        finally {
+            Toast.makeText(act,"Contato deletado com sucesso",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Realiza uma busca de todos os contatos no banco de dados
     public Cursor buscarTodos(){
         db.abrirDB();
-        return db.buscarDados("contatos", new String[]{"id", "nome", "fone"});
+        return db.buscarDados(TITULO_TABELA, new String[]{COLUNA_ID, COLUNA_NOME, COLUNA_FONE});
     }
 }

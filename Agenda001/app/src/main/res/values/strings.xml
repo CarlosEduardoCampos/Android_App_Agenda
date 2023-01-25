@@ -6,6 +6,8 @@
     <string name="txt_tel">Telefone</string>
     <string name="txt_cod">Codigo</string>
     <string name="txt_gravar">GRAVAR</string>
+    <string name="txt_deletar">DELETAR</string>
+    <string name="txt_editar">EDITAR</string>
     <string name="txt_consutar">CONSULTAR</string>
     <string name="txt_fechar">FECHAR</string>
     <string name="txt_pesquisar">Pesquisar</string>
