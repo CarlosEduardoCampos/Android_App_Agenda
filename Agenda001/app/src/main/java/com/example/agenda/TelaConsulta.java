@@ -15,9 +15,9 @@ public class TelaConsulta extends AppCompatActivity {
     EditText et_pes_nome, et_pes_telefone;
     TextView tv_pes_id;
     Button btn_anterior, btn_proximo, btn_voltar;
-    SQLiteDatabase db = null;
     Cursor cursor;
-    CxMsg mensagem = new CxMsg(this);
+    BancoDados banco = new BancoDados(this);
+    Contatos contatos = new Contatos(this, banco);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,45 +38,13 @@ public class TelaConsulta extends AppCompatActivity {
         btn_proximo = findViewById(R.id.btn_proximo);
         btn_voltar = findViewById(R.id.btn_voltar);
 
-        buscarDados();
-    }
-
-    // Abre o acesso ou cria um banco de dados
-    public void abrirDB(){
-        try{
-            db = openOrCreateDatabase("bancoAgenda", MODE_PRIVATE, null);
-        }catch (Exception ex){
-            mensagem.msgErro("Erro ao tentar abrir ou cria o banco de dados", ex);
-        }
-        finally {
-            Toast.makeText(this,"Banco de dados foi iniciado com sucesso", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    // Fecha o acesso ao banco de dados
-    public void fecharDB(){
-        db.close();
-        Toast.makeText(this, "Banco de dados esta deligado", Toast.LENGTH_SHORT).show();
-    }
-
-    public void buscarDados(){
-        abrirDB();
-        cursor = db.query(
-                "contatos",
-                new String[]{"id","nome","fone"},
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
+        cursor = contatos.buscarTodos();
         if(cursor.getCount() != 0){
             cursor.moveToFirst();
             mostrarDados();
         }
         else{
-            mensagem.msg("Nenhum registro encontrado");
+            CxMsg.erro(this,"Nenhum registro encontrado");
         }
     }
 
@@ -88,10 +56,10 @@ public class TelaConsulta extends AppCompatActivity {
         }
         catch (Exception ex){
             if (cursor.isAfterLast()){
-                mensagem.msg("Não existem mais registros");
+                CxMsg.erro(this, "Não existem mais registros");
             }
             else {
-                mensagem.msgErro("Erro ao buscar dados", ex);
+                CxMsg.erroExecucao(this,"Erro ao buscar dados", ex);
             }
         }
     }
@@ -103,10 +71,10 @@ public class TelaConsulta extends AppCompatActivity {
         }
         catch (Exception ex){
             if (cursor.isBeforeFirst()){
-                mensagem.msg("Não existem mais registros");
+                CxMsg.erro(this, "Não existem mais registros");
             }
             else {
-                mensagem.msgErro("Erro ao buscar dados", ex);
+                CxMsg.erroExecucao(this,"Erro ao buscar dados", ex);
             }
         }
     }
