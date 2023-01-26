@@ -61,6 +61,7 @@ public class TelaConsulta extends AppCompatActivity {
         }
         catch (Exception ex){
             if (cursor.isAfterLast()){
+                limpaTxt();
                 CxMsg.erro(this, "Não existem mais registros");
             }
             else {
@@ -78,6 +79,7 @@ public class TelaConsulta extends AppCompatActivity {
         }
         catch (Exception ex){
             if (cursor.isBeforeFirst()){
+                limpaTxt();
                 CxMsg.erro(this, "Não existem mais registros");
             }
             else {
@@ -109,6 +111,7 @@ public class TelaConsulta extends AppCompatActivity {
             mostrarDados();
         }
         else{
+            limpaTxt();
             CxMsg.erro(this,"Ultimo registro Deletado");
         }
     }
@@ -128,6 +131,12 @@ public class TelaConsulta extends AppCompatActivity {
         cursor = contatos.buscarTodos();
         cursor.move(ponteiro + 1);
         mostrarDados();
+    }
+
+    // Limpar campos de digitação
+    public void limpaTxt(){
+        et_pes_nome.setText("");
+        et_pes_telefone.setText("");
     }
 
     // Volta para a tela anterior matando a tela atual

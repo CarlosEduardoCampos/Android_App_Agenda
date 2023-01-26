@@ -43,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
         contatos.setNome(et_nome.getText().toString());
         contatos.setTelefone(et_telefone.getText().toString());
         contatos.inserir();
+        limpaTxt();
+    }
+
+    // Limpar campos de digitação
+    public void limpaTxt(){
+        et_nome.setText("");
+        et_telefone.setText("");
     }
 
     // Cria uma nova tela acima da atual
