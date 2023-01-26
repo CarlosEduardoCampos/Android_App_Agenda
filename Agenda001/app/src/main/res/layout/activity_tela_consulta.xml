@@ -1,158 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TelaConsulta">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/txt_consutar"
-            android:textAlignment="center"
-            android:textSize="34sp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="812dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_pes_id"
+                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
-                android:text="@string/txt_cod"
+                android:padding="20dp"
+                android:text="@string/txt_consutar"
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/tv_pes_nome"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
-                android:text="@string/txt_nome"
-                android:textSize="20sp" />
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <EditText
-                android:id="@+id/et_pes_nome"
+                <TextView
+                    android:id="@+id/tv_pes_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text="@string/txt_cod"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tv_pes_nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text="@string/txt_nome"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_pes_nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:autofillHints="personName"
+                    android:ems="10"
+                    android:hint="@string/txt_dig_nome"
+                    android:inputType="textPersonName|textAutoComplete"
+                    android:padding="10dp"
+                    android:selectAllOnFocus="true"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tv_pes_telefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text="@string/txt_tel"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_pes_telefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:autofillHints="phoneNumber"
+                    android:ems="10"
+                    android:fontFamily="sans-serif-medium"
+                    android:inputType="textAutoComplete|phone"
+                    android:padding="10dp"
+                    android:text="@string/txt_dig_numero"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:ems="10"
-                android:hint="@string/txt_dig_nome"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:selectAllOnFocus="true"
-                android:textSize="24sp" />
+                android:layout_height="135dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
-            <TextView
-                android:id="@+id/tv_pes_telefone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
-                android:text="@string/txt_tel"
-                android:textSize="20sp" />
+                <Button
+                    android:id="@+id/btn_anteriro"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/purple_700"
+                    android:onClick="anteriorRegistro"
+                    android:text="@string/txt_anterior"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/et_pes_telefone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:ems="10"
-                android:fontFamily="sans-serif-medium"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:text="@string/txt_dig_numero"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="135dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:padding="10dp">
+                <Button
+                    android:id="@+id/btn_proximo"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/purple_700"
+                    android:onClick="proximoRegistro"
+                    android:text="@string/txt_proximo"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btn_anteriro"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_voltar"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_weight="1"
+                android:layout_marginBottom="30dp"
                 android:backgroundTint="@color/purple_700"
-                android:onClick="anteriorRegistro"
-                android:text="@string/txt_anterior"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:onClick="finalizarTela"
+                android:text="@string/txt_voltar"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btn_proximo"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_editar"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/purple_700"
-                android:onClick="proximoRegistro"
-                android:text="@string/txt_proximo"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:onClick="editarContatos"
+                android:text="@string/txt_editar"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_deletar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:onClick="deletarContato"
+                android:text="@string/txt_deletar"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
+    </ScrollView>
 
-        <Button
-            android:id="@+id/btn_voltar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/purple_700"
-            android:onClick="finalizarTela"
-            android:text="@string/txt_voltar"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_editar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@android:color/holo_green_dark"
-            android:onClick="editarContatos"
-            android:text="@string/txt_editar"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_deletar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:onClick="deletarContato"
-            android:text="@string/txt_deletar"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

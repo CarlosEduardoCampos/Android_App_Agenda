@@ -38,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:autofillHints="personName"
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
                 android:hint="@string/txt_dig_nome"
@@ -59,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:autofillHints="phoneNumber"
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
                 android:hint="@string/txt_dig_numero"
@@ -75,6 +77,7 @@
 
             <Button
                 android:id="@+id/btn_gravar"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginBottom="20dp"
@@ -86,13 +89,9 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
             <Button
                 android:id="@+id/btn_consultar"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginBottom="20dp"
@@ -107,6 +106,7 @@
 
         <Button
             android:id="@+id/btn_fechar"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="20dp"
